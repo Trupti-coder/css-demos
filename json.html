@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).click(function(){
+            var arr=["red","green","blue","black","pink"];
+            console.log(typeof(arr));
+
+            //JSON
+
+            var jobj=JSON.stringify(arr);
+            console.log(jobj);
+            console.log(typeof(jobj));
+
+            //back to js object
+
+           // var jsobj=JSON.parse(jobj);
+            var jsobj=$.parseJSON(jobj);
+            console.log(jsobj);
+            console.log(typeof(jsobj));
+
+        })
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
