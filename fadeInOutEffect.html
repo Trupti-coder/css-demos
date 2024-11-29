@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fade Effect</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="fadeButton">Fade Image</button>
+    <img id="image" src="https://via.placeholder.com/150" alt="Placeholder" style="display: block; margin-top: 10px;">
+
+    <script>
+        $(document).ready(function() {
+            $("#fadeButton").click(function() {
+                $("#image").fadeToggle();
+            });
+        });
+    </script>
+</body>
+</html>
 
