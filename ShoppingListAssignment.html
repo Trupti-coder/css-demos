@@ -79,14 +79,14 @@
         var total=0;
         var output="";
 
-        // function funcart(){
-        //     var txtName=$("#txtName").val();
-        //     var newPrice=$("#txtPrice").val();
-        //     total+=parseInt(txtPrice);
-        //     output+="<br>"+txtName+"_"+txtPrice;
-        //     $("#d1").html(output + "<br>Total=" + total);
+        function funcart(){
+            var txtName=$("#txtName").val();
+            var newPrice=$("#txtPrice").val();
+            total+=parseInt(txtPrice);
+            output+="<br>"+txtName+"_"+txtPrice;
+            $("#d1").html(output + "<br>Total=" + total);
 
-        // }
+         }
 
         $(document).ready(function() {
             $("#btn1").click(funAdd);
