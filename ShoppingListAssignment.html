@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+    
+
+        var list=[] //for storing data we take an array
+        function Product(name,price){// Product is  constructor name, also act like func-name
+            this.prodName=name;
+            this.prodPrice=price;
+        }
+        function funAdd(){
+            var txtName=$("#txtName").val();
+            var txtPrice=$("#txtPrice").val();
+            //var obj={prodName:txtName,prodPrice:txtPrice};
+            var obj=new Product(txtName,txtPrice);//creating a object in (textname,txtprice) this fetched valu we provide to the parameter of product
+            list.push(obj);
+
+            $("txtName").val("");
+            $("txtPrice").val("");
+
+            display();
+        }
+        function display(){//not un
+            var str="";
+            for(i=0;i<list.length;i++){
+                str+="<li>"+list[i].prodName+"*"+list[i].prodPrice+"</li>";
+            }
+            $("#ul1").html(str);
+        }
+        function funClick(event){
+            var str=$(event.target).text();
+            var arr=str.split("*");
+            $("#txtName").val(arr[0]);
+            $("#txtPrice").val(arr[1]);
+            $("#txtName").readOnly=true;
+        }
+        function funDelete(){
+            var txtName=$("#txtName").val();
+            
+
+
+            for(let i=0;i<list.length;i++)
+            {
+                if(list[i].prodName==txtName)
+                {
+                   list.splice(i,1);
+                   break;
+                }
+            }
+            display();
+        }
+
+        function funUpdate(){
+            var txtName=$("#txtName").val();
+            var newPrice=$("#txtPrice").val();
+
+
+            for(var i=0;i<list.length;i++){
+                if(list[i].prodName==txtName){
+                    list[i].prodPrice=newPrice;
+                }
+            }
+            $("#txtName").val("");
+            $("#txtPrice").val("");
+            $("#txtName").readOnly=false;
+
+            display();
+        }
+
+
+        var d1=$("#d1");
+        var total=0;
+        var output="";
+
+        // function funcart(){
+        //     var txtName=$("#txtName").val();
+        //     var newPrice=$("#txtPrice").val();
+        //     total+=parseInt(txtPrice);
+        //     output+="<br>"+txtName+"_"+txtPrice;
+        //     $("#d1").html(output + "<br>Total=" + total);
+
+        // }
+
+        $(document).ready(function() {
+            $("#btn1").click(funAdd);
+            $("#ul1").on("click", "li", funClick);
+            $("#btnDelete").click(funDelete);
+            $("#btnUpdate").click(funUpdate);
+            $("#btnCart").click(funcart);
+        });
+
+        
+
+    </script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    ProdName:<input type="text" id="txtName"><br><br>
+    ProdPrice:<input type="text" id="txtPrice"><br><br>
+    <input type="button" id="btn1" value="Add">
+    <input type="button" value="Update" onclick="funUpdate()">
+    <input type="button" value="Delete" onclick="funDelete()">
+    <input type="button" value="Add to Cart" onclick="funcart()">
+    <ul id="ul1"></ul>
+    <div id="d1"></div>
+    
+</body>
+</html>
