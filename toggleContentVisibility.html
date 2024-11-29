@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle Content</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #content {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">Show Content</button>
+    <div id="content">This is some hidden content!</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#toggleButton").click(function() {
+                $("#content").toggle();
+                $(this).text($("#content").is(":visible") ? "Hide Content" : "Show Content");
+            });
+        });
+    </script>
+</body>
+</html>
 
